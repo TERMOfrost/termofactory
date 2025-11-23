@@ -1,2 +1,112 @@
-termo
-<p>hello world</p>
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kobra APK's</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #0a0a0a, #1c1c1c);
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 30px 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 25px;
+      padding: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .card {
+      background: #111;
+      padding: 15px;
+      border-radius: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 15px #00ffe15a;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ffe1;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background: #000;
+    }
+    .popup-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .popup {
+      background: #121212;
+      padding: 25px;
+      border-radius: 15px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 25px #00fff2;
+    }
+    .popup a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #00ffe1;
+      color: #000;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .close-btn {
+      margin-top: 15px;
+      cursor: pointer;
+      color: #ccc;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>Kobra APK's</header>  <div class="grid">
+    <!-- CARD MODELO -->
+    <div class="card" onclick="openPopup('NOME DO APLICATIVO', 'LINK_DO_DOWNLOAD')">
+      <img src="LINK_DA_IMAGEM" alt="App" />
+      <p>NOME DO APLICATIVO</p>
+    </div><!-- Repita o card acima para cada APK -->
+
+  </div>  <div class="popup-bg" id="popupBg">
+    <div class="popup" id="popup">
+      <h2 id="popupTitle"></h2>
+      <a id="popupLink" href="#" target="_blank">Baixar APK</a>
+      <div class="close-btn" onclick="closePopup()">Fechar</div>
+    </div>
+  </div><script>
+  function openPopup(appName, link) {
+    document.getElementById('popupTitle').innerText = appName;
+    document.getElementById('popupLink').href = link;
+    document.getElementById('popupBg').style.display = 'flex';
+  }
+
+  function closePopup() {
+    document.getElementById('popupBg').style.display = 'none';
+  }
+</script></body>
+</html>
